@@ -41,6 +41,7 @@ When you are done with the table you got from the table pool, you should return 
 
 TODO
 ====
+* Multiple pools support
 
 Authors
 =======
