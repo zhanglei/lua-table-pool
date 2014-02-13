@@ -19,6 +19,7 @@ API
 tpool.init
 ----------
 `tpool.init(size)`
+
 This create a table pool of size `size`. If you do not call this method, the default pool size is 4.
 
 tpool.get
