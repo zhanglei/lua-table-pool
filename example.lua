@@ -1,24 +1,27 @@
 local pool = require "tpool"
 
-local table, id = pool.get()
+local tget = pool.get
+local tfree = pool.free
+
+local table, id = tget()
 
 local times = 5000000
 
-function test1()
+local function test1()
     local t = {}
     for i = 1, 10 do
         t[i] = 2^i
     end
 end
 
-function test2()
+local function test2()
     local t = table
     for i = 1, 20 do
         t[i] = 2^i
     end
 end
 
-function benchmark(name, func)
+local function benchmark(name, func)
     local t = os.clock()
     for i=1, times do
         func()
@@ -26,7 +29,7 @@ function benchmark(name, func)
     print(name, os.clock() - t)
 end
 
-benchmark("no pool", test1)
-benchmark("pool", test2)
+benchmark("without pool", test1)
+benchmark("with pool", test2)
 
-pool.free(table, id)
+tfree(table, id)

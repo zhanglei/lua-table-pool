@@ -10,7 +10,7 @@ end
 local _M = new_tab(0, 4)
 
 
-function get_id()
+local function get_id()
     counter = counter + 1
     return counter
 end
