@@ -9,6 +9,7 @@ else
 end
 
 function test_sanity()
+    pool.init(10)
     local table, id = pool.get()
     assert_not_nil(table)
     assert_equal(1, id)

@@ -6,6 +6,7 @@ Synopsis
 ========
 
     local pool = require "tpool"
+    pool.init(8)
     local table, id = pool.get()
     -----------------------------------
     -- do something with this table ...
@@ -14,6 +15,11 @@ Synopsis
 
 API
 ===
+
+tpool.init
+----------
+`tpool.init(size)`
+This create a table pool of size `size`. If you do not call this method, the default pool size is 4.
 
 tpool.get
 ---------
